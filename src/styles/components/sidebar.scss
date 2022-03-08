@@ -2,7 +2,7 @@
   background-color: var(--theme-dark);
   height: 100vh;
   position: fixed;
-  width: 200px;
+  width: 240px;
   .sidebar {
     margin-top: 50px;
     .user-img {
@@ -26,13 +26,42 @@
       margin-top: 20px;
       .navigate-list {
         list-style: none;
-        padding-left: 18px;
+        padding-left: 20px;
         .navigate-item {
           color: var(--theme-white);
           margin-top: 20px;
           .navigate-link{
             padding-left: 35px;
+            text-decoration: none;
+            padding: 10px;
+            img {
+              padding-right: 40px;
+            }
+            &.router-link-exact-active {
+              color: var(--primary);
+              background-color: var(--theme-dark-light);
+              // border: 1px solid var(--primary);
+              border-radius: 10px;
+              width: 180px;
+              display: inline-flex;
+            }
           }
+        }
+      }
+    }
+    .log-out {
+      margin-top: 20px;
+      padding-left: 20px;
+      .log-div {
+        display: flex;
+        color: var(--theme-white);
+        padding: 10px;
+        cursor: pointer;
+        img {
+          padding-right: 40px;
+        }
+        p {
+          margin-bottom: 0px;
         }
       }
     }

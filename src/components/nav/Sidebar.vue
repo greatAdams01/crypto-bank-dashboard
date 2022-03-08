@@ -14,10 +14,18 @@
             :key="route.url"
             class="navigate-item"
           >
-            <img :src=route.img alt="">
-            <router-link :to="route.url" class="navigate-link">{{ route.title }}</router-link>
+            <router-link :to="route.url" class="navigate-link">
+              <img :src=route.img alt="">
+              {{ route.title }}
+            </router-link>
           </li>
         </ul>
+      </div>
+      <div class="log-out">
+        <div class="log-div">
+          <img src="/img/log-out.svg" alt="">
+          <p>Logout</p>
+        </div>
       </div>
     </div>
   </div>
