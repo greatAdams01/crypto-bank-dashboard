@@ -1,0 +1,40 @@
+.dash-side {
+  background-color: var(--theme-dark);
+  height: 100vh;
+  position: fixed;
+  width: 200px;
+  .sidebar {
+    margin-top: 50px;
+    .user-img {
+      width: 80px;
+      margin: auto;
+      img {
+        text-align: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 50px;
+      }
+    }
+    .user-name {
+      margin-top: 10px;
+      text-align: center;
+      color: var(--theme-white);
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--underline-user);
+    }
+    .navigations {
+      margin-top: 20px;
+      .navigate-list {
+        list-style: none;
+        padding-left: 18px;
+        .navigate-item {
+          color: var(--theme-white);
+          margin-top: 20px;
+          .navigate-link{
+            padding-left: 35px;
+          }
+        }
+      }
+    }
+  }
+}

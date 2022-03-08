@@ -1,0 +1,12 @@
+
+:root {
+  --theme-dark: #212936;
+  --theme-white: #fff;
+  --underline-user: #313C4E;
+}
+
+body {
+  background-color: var(--theme-white);
+}
+
+@import 'components/sidebar.scss';
