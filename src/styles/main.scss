@@ -6,6 +6,7 @@
   --primary: #1976D2;
   --theme-dark-light: #2B3648;
   --theme-background: #E5E5E5;
+  --gray: #C4C4C4;
 }
 
 body {
@@ -30,3 +31,4 @@ body {
 
 @import 'components/sidebar.scss';
 @import 'components/deposit.scss';
+@import 'components/dashboard.scss';
