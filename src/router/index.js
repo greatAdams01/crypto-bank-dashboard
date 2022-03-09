@@ -4,19 +4,19 @@ import Home from '../views/Home.vue'
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'My Dashboard',
     component: Home
-  }
-  // {
-  //   path: '/about-us',
-  //   name: 'About',
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  // },
-  // {
-  //   path: '/signup',
-  //   name: 'Sign-up',
-  //   component: () => import(/* webpackChunkName: "sustainability" */ '../views/Signup.vue')
-  // },
+  },
+  {
+    path: '/deposit',
+    name: 'Deposit',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Deposit.vue')
+  },
+  {
+    path: '/withdrawal',
+    name: 'Withdrawal',
+    component: () => import(/* webpackChunkName: "sustainability" */ '../views/Withdraw.vue')
+  },
   // {
   //   path: '/login',
   //   name: 'Login',

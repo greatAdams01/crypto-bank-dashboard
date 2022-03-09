@@ -7,7 +7,7 @@ export default [
   {
     title: 'Deposit',
     img: '/img/dash-deposit.svg',
-    url: '/'
+    url: '/deposit'
   },
   {
     title: 'Transactions',
@@ -22,6 +22,6 @@ export default [
   {
     title: 'Withdrawal',
     img: '/img/dash-withdraw.svg',
-    url: '/'
+    url: '/withdrawal'
   }
 ]

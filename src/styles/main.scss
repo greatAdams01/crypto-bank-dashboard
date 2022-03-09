@@ -5,10 +5,28 @@
   --underline-user: #313C4E;
   --primary: #1976D2;
   --theme-dark-light: #2B3648;
+  --theme-background: #E5E5E5;
 }
 
 body {
-  background-color: var(--theme-white);
+  background-color: var(--theme-background);
+}
+.dash-side {
+  display: none;
+}
+.page-title {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+@media (min-width: 1000px) {
+  .container {
+    max-width: 1000px;
+    margin-left: 309px;
+  }
+  .dash-side {
+    display: block;
+  }
 }
 
 @import 'components/sidebar.scss';
+@import 'components/deposit.scss';
