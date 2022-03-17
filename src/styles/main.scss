@@ -9,6 +9,7 @@
   --gray: #C4C4C4;
 }
 
+
 body {
   background-color: var(--theme-background);
 }
@@ -28,6 +29,10 @@ body {
     display: block;
   }
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @import 'components/sidebar.scss';
 @import 'components/deposit.scss';
