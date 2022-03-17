@@ -9,9 +9,11 @@
   --gray: #C4C4C4;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,600;0,700;1,900&display=swap');
 
 body {
-  background-color: var(--theme-background);
+  background-color: var(--theme-white);
+  font-family: 'Nunito', sans-serif;
 }
 .dash-side {
   display: none;
@@ -30,9 +32,37 @@ body {
   }
 }
 
+.nav {
+  .sidebar-icons {
+    width: 170px;
+    margin-left: 22px;
+    a {
+      width: 170px;
+    }
+  }
+  .logout {
+    width: 100px;
+  }
+}
+
+.router-link-exact-active{
+  background-color: #fff !important;
+  color: var(--primary) !important;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .sidebar-icons {
+    @apply relative flex items-center px-3 h-12 mt-2 mb-2 mx-auto bg-theme-dark hover:bg-white rounded-l-full transition-all duration-300 ease-linear cursor-pointer text-white hover:text-primary;
+  }
+  .logout {
+    @apply relative flex justify-center items-center px-3 h-10 mt-24 mb-2 mx-auto bg-primary hover:bg-white rounded-full transition-all duration-300 ease-linear cursor-pointer text-white hover:text-primary text-center;
+  }
+}
+
 
 @import 'components/sidebar.scss';
 @import 'components/deposit.scss';
