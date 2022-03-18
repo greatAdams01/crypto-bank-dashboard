@@ -1,28 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import route from './router'
 
-const routes = [
-  {
-    path: '/',
-    name: 'Dashboard',
-    component: Home
-  },
-  {
-    path: '/deposit',
-    name: 'Deposit',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Deposit.vue')
-  },
-  {
-    path: '/withdrawal',
-    name: 'Withdrawal',
-    component: () => import(/* webpackChunkName: "sustainability" */ '../views/Withdraw.vue')
-  },
-  // {
-  //   path: '/login',
-  //   name: 'Login',
-  //   component: () => import(/* webpackChunkName: "contact" */ '../views/Login.vue')
-  // }
-]
+const routes = route
 
 const router = createRouter({
   scrollBehavior (to, from, savedPosition) {

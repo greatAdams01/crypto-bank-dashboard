@@ -4,6 +4,14 @@ import App from './App.vue'
 import SvgIcon from "vue3-icon";
 import './styles/main.scss'
 
+import Toast, { POSITION } from "vue-toastification";
+
+import "vue-toastification/dist/index.css";
+
 import router from './router'
 
-createApp(App).use(router).use(store).component("svg-icon", SvgIcon).mount('#app')
+const app = createApp(App)
+app.use(router)
+app.use(store)
+app.use(Toast, { position: POSITION.TOP_RIGHT, timeout: 4000 });
+app.component("svg-icon", SvgIcon).mount('#app')

@@ -15,6 +15,20 @@ body {
   background-color: var(--theme-white);
   font-family: 'Nunito', sans-serif;
 }
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.Vue-Toastification__toast {
+  font-family: 'Nunito', sans-serif !important;
+}
+
 .dash-side {
   display: none;
 }
@@ -64,6 +78,7 @@ body {
 }
 
 
+@import 'components/auth.scss';
 @import 'components/sidebar.scss';
 @import 'components/deposit.scss';
 @import 'components/dashboard.scss';

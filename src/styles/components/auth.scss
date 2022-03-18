@@ -1,0 +1,33 @@
+.form-input {
+  padding-bottom:30px;
+  display: block;
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  input {
+    background-color: #E5E5E5;
+    outline: none;
+    border: 0px;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #000;
+  }
+  textarea {
+    background-color: #000;
+    outline: none;
+    border: 0px;
+    width: 36%;
+    padding: 10px;
+    border-bottom: 1px solid #000;
+    border-radius: 10px;
+  }
+}
+.btn-item {
+  width: 200px;
+  margin: auto;
+  button {
+    width: 100%;
+    height: 48px;
+  }
+}
