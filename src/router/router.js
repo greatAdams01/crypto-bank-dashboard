@@ -16,6 +16,11 @@ export default [
     component: () => import(/* webpackChunkName: "sustainability" */ '../views/Withdraw.vue')
   },
   {
+    path: '/transactions',
+    name: 'Transactions',
+    component: () => import(/* webpackChunkName: "sustainability" */ '../views/Transactions.vue')
+  },
+  {
     path: '/auth/login',
     name: 'Login',
     component: () => import(/* webpackChunkName: "sustainability" */ '../views/auth/Login.vue')

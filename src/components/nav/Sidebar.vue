@@ -7,7 +7,7 @@
           <svg-icon class="pr-4" type="mdi" :path="mdiViewDashboard" :size="40"></svg-icon>
           Dashboard
         </router-link>
-        <router-link to="/" class="sidebar-icons">
+        <router-link to="/transactions" class="sidebar-icons">
           <svg-icon class="pl-4" :fa-icon="faMoneyBill" :size="40" flip="horizontal"></svg-icon>
           Transactions
         </router-link>

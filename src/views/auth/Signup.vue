@@ -76,8 +76,10 @@
 
 <script setup>
 import { reactive } from 'vue'
+import { useStore } from 'vuex'
 import { useToast } from "vue-toastification"
 
+const store = useStore()
 const toast = useToast()
 
 const state = reactive({
@@ -121,6 +123,8 @@ const onsubmit = (e) => {
     password: state.password,
     re_password: state.re_password
   }
+
+  store.dispatch('auth/signUp', data)
 }
 
 const validEmail = (email) => {
