@@ -19,7 +19,7 @@
       <div class="flex ml-4">
         <img class="w-10 h-10 rounded-sm" src="/img/wp5293460.jpg" alt="">
         <div class="ml-3">
-          <h4 class="text-1xl font-bold">Great London Adams</h4>
+          <h4 class="text-1xl font-bold">Great</h4>
           <div class="flex">
             <span>Customer</span>
             <svg-icon class="pr-2" :fa-icon="faCaretDown" :size="20" flip="horizontal"></svg-icon>

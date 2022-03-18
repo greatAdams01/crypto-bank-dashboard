@@ -15,7 +15,7 @@
           <svg-icon class="pl-4" :fa-icon="faSackDollar" :size="40" flip="horizontal"></svg-icon>
           Deposit
         </router-link>
-        <router-link to="/withdrawal" class="sidebar-icons">
+        <router-link to="/withdraw" class="sidebar-icons">
           <svg-icon class="pl-4" :fa-icon="faMoneyBillTransfer" :size="40" flip="horizontal"></svg-icon>
           Withdraw
         </router-link>

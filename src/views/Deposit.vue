@@ -1,46 +1,48 @@
 <template>
-  <div class="container">
-    <h2 class="page-title">{{ $route.name }}</h2>
-    <div class="deposit">
-      <div class="row">
-        <div class="col-12 col-md-6 deposit-item">
-          <form @submit.prevent="onsubmit">
-            <div class="form-item">
-              <label for="network">Network</label>
-              <select v-model="state.network" name="network">
-                <option value="bitcoin">Bitcoin</option>
-                <option value="eth">Ethereum</option>
-                <option value="sol">Solana</option>
-                <option value="trx">Tron</option>
-              </select>
-            </div>
-            <div class="form-item">
-              <label for="wallet-address">Wallet address</label>
-              <input v-model="state.walletAddress" type="text" name="wallet-address">
-            </div>
-            <div class="form-item">
-              <label for="amount">Amount</label>
-              <input v-model="state.amount" type="number" name="amount">
-            </div>
-
-            <div class="form-sub">
-              <input type="submit" class="btn" value="Deposit">
-            </div>
-          </form>
-        </div>
-        <div class="col-12 col-md-6 deposit-item">
-          <div class="content">
-            <img src="/img/undraw_vault_re_s4my.svg" alt="">
-          </div>
-        </div>
+ <DashLayout />
+  <div class="container bg-[#E5E5E5] rounded-lg p-10 h-[80vh]">
+    <div class="md:flex mt-10">
+      <div class="w-full sm:mb-2 md:w-3/4">
+        <label for="package">Package Categories</label><br>
+        <select v-model="state.package" class="w-full sm:mb-2 md:w-3/4 px-4 py-3 rounded-lg border-2 bg-white">
+          <option value="defi">Defi</option>
+        </select>
+      </div>
+      <div class="w-full sm:mb-2 md:w-3/4">
+        <label for="package">Coin Type</label><br>
+        <select v-model="state.coin" class="w-full sm:mb-2 md:w-3/4 px-4 py-3 rounded-lg border-2 bg-white">
+          <option value="btc">Bitcoin</option>
+        </select>
       </div>
     </div>
+    <div class="md:flex my-5">
+      <div class="md:w-3/4">
+        <label for="wallet">Wallet</label><br>
+        <input class="md:w-3/4 px-4 py-3 rounded-lg border-2 bg-white" v-model="state.walletAddress" placeholder="Wallet Address" type="text" name="wallet">
+      </div>
+      <div class="md:w-3/4">
+        <label for="amount">Amount</label><br>
+        <input class="md:w-3/4 px-4 py-3 rounded-lg border-2 bg-white" v-model="state.amount" placeholder="amount" type="number" name="amount">
+      </div>
+    </div>
+    <!-- <div class="md:flex mt-5">
+      <div class="w-[94md:%]">
+        <label for="wallet">Wallet</label><br>
+        <input class="w-[94%] px-4 py-3 rounded-lg border-2 bg-white" v-model="state.walletAddress" placeholder="Wallet Address" type="text" name="wallet">
+      </div>
+    </div> -->
+    <button class="bg-primary px-9 py-3 rounded-lg text-white">Deposit</button>
   </div>
 </template>
 
 <script setup>
+import DashLayout from '../components/layouts/DashLayout.vue';
+
 import { reactive } from 'vue'
+
 const state = reactive({
+  package: '',
+  coin: '',
   network: '',
   walletAddress: '',
   amount: 0
@@ -51,5 +53,12 @@ const onsubmit = ()  => {
 </script>
 
 <style lang="scss" scoped>
-
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 10px;
+}
 </style>
