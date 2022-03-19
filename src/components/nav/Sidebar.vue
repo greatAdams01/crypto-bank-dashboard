@@ -1,6 +1,6 @@
 <template>
   <div class="nav">
-    <div class="fixed top-0 left-0 h-screen w-48 flex flex-col bg-theme-dark">
+    <div class="hidden fixed top-0 left-0 h-screen w-48 md:flex flex-col bg-theme-dark">
       <div class="logo my-11"></div>
       <div>
         <router-link to="/" class="sidebar-icons">

@@ -2,7 +2,7 @@ export default {
   updateLoadingStatus (state, isLoading) {
     state.loading = isLoading
   },
-  updateUserState (state, data) {
+  UPDATE_USER_STATE (state, data) {
     state.user = data
   }
 }

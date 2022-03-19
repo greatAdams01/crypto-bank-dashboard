@@ -19,10 +19,10 @@
       <div class="flex ml-4">
         <img class="w-10 h-10 rounded-sm" src="/img/wp5293460.jpg" alt="">
         <div class="ml-3">
-          <h4 class="text-1xl font-bold">Great</h4>
+          <h4 class="text-1xl font-bold">{{ store.state.user.lastname }}</h4>
           <div class="flex">
             <span>Customer</span>
-            <svg-icon class="pr-2" :fa-icon="faCaretDown" :size="20" flip="horizontal"></svg-icon>
+            <!-- <svg-icon class="pr-2" :fa-icon="faCaretDown" :size="20" flip="horizontal"></svg-icon> -->
           </div>
         </div>
       </div>
@@ -32,13 +32,16 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import { reactive } from 'vue'
+import { useStore } from 'vuex'
 import AppInput from '../AppInput.vue';
 import { faBell, faCaretDown, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const state = reactive({
   search: ''
 })
+
+const store = useStore()
 </script>
 
 <style lang="scss">

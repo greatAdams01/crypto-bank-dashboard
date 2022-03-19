@@ -6,8 +6,23 @@
 </template>
 
 <script setup>
-import Sidebar from '../nav/Sidebar.vue';
-import TopInfoVue from '../nav/TopInfo.vue';
+import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
+import Sidebar from '../nav/Sidebar.vue'
+import TopInfoVue from '../nav/TopInfo.vue'
+
+const router = useRouter()
+const store = useStore()
+const user = store.state.user
+console.log(user)
+onMounted(() => {
+  if(!store.state.user) {
+    router.push('/auth/login')
+  }
+})
+
+
 </script>
 
 <style lang="scss" scoped>

@@ -23,7 +23,7 @@
               <router-link to="/auth/login" class="text-sm text-center">Already have an account ?</router-link>
             </div>
           <form @submit.prevent="onsubmit">
-              <div class="flex justify-between">
+              <div class="md:flex justify-between">
                 <div class="form-input">
                   <label for="first-name">First Name</label>
                   <input v-model.trim="state.firstName" type="text" name="first-name" required>
@@ -33,7 +33,7 @@
                   <input v-model.trim="state.lastName" type="text" name="last-name" required>
                 </div>
               </div>
-            <div class="flex justify-between">
+            <div class="md:flex justify-between">
               <div class="form-input">
                 <label for="email">Email</label>
                 <input v-model.trim="state.email" type="email" name="email" required>
@@ -43,17 +43,22 @@
                 <input v-model.trim="state.phone" type="number" name="phone" required>
               </div>
             </div>
-            <div class="flex justify-between">
+            <div class="md:flex justify-between">
               <div class="form-input">
                 <label for="occupation">Occupation</label>
-                <input v-model.trim="state.occupation" type="text" name="occupation" required>
+                <select v-model="state.occupation" class="w-full md:w-[220px]">
+                <option value="Student">Student</option>
+                <option value="Employed">Employed</option>
+                <option value="Self-Employed">Self-Employed</option>
+                <option value="Others">Others</option>
+              </select>
               </div>
               <div class="form-input">
                 <label for="sex">Sex</label>
                 <input v-model.trim="state.sex" type="text" name="sex" required>
               </div>
             </div>
-            <div class="flex justify-between">
+            <div class="md:flex justify-between">
               <div class="form-input">
                 <label for="password">Password</label>
                 <input v-model="state.password" type="password" name="password" required>
@@ -81,6 +86,7 @@ import { useToast } from "vue-toastification"
 
 const store = useStore()
 const toast = useToast()
+
 
 const state = reactive({
       errorMsg: '',
@@ -134,5 +140,7 @@ const validEmail = (email) => {
 </script>
 
 <style lang="scss" scoped>
-
+select {
+  width: 220px !important;
+}
 </style>
