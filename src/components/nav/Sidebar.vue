@@ -19,7 +19,7 @@
           <svg-icon class="pl-4" :fa-icon="faMoneyBillTransfer" :size="40" flip="horizontal"></svg-icon>
           Withdraw
         </router-link>
-        <router-link to="/" class="sidebar-icons">
+        <router-link to="/investment" class="sidebar-icons">
           <svg-icon class="pr-4" type="mdi" :path="mdiInvertColors " :size="40"></svg-icon>
           Investment
         </router-link>
@@ -29,7 +29,10 @@
         </router-link>
       </div>
       <div class="">
-        <a class="logout">Log out</a>
+        <a class="logout">
+          <svg-icon class="pl-4" :fa-icon="faArrowRightFromBracket" :size="40" flip="horizontal"></svg-icon>
+          Log out
+          </a>
       </div>
     </div>
   </div>
@@ -37,7 +40,12 @@
 
 <script setup>
 import routes from '../../data/nav'
-import { faSackDollar, faChartSimple, faMoneyBill, faMoneyBillTransfer} from "@fortawesome/free-solid-svg-icons";
+import { 
+  faSackDollar,
+  faChartSimple,
+  faMoneyBill,
+  faMoneyBillTransfer,
+  faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { mdiViewDashboard, mdiInvertColors } from '@mdi/js';
 </script>
 

@@ -13,21 +13,26 @@ export default [
   {
     path: '/withdraw',
     name: 'Withdraw',
-    component: () => import(/* webpackChunkName: "sustainability" */ '../views/Withdraw.vue')
+    component: () => import(/* webpackChunkName: "withdraw" */ '../views/Withdraw.vue')
   },
   {
     path: '/transactions',
     name: 'Transactions',
-    component: () => import(/* webpackChunkName: "sustainability" */ '../views/Transactions.vue')
+    component: () => import(/* webpackChunkName: "transaction" */ '../views/Transactions.vue')
+  },
+  {
+    path: '/investment',
+    name: 'Investment',
+    component: () => import(/* webpackChunkName: "Investment" */ '../views/Investment.vue')
   },
   {
     path: '/auth/login',
     name: 'Login',
-    component: () => import(/* webpackChunkName: "sustainability" */ '../views/auth/Login.vue')
+    component: () => import(/* webpackChunkName: "login" */ '../views/auth/Login.vue')
   },
   {
     path: '/auth/signup',
     name: 'Signup',
-    component: () => import(/* webpackChunkName: "sustainability" */ '../views/auth/Signup.vue')
+    component: () => import(/* webpackChunkName: "signup" */ '../views/auth/Signup.vue')
   }
 ]
