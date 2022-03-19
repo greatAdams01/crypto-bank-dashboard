@@ -29,10 +29,10 @@
         </router-link>
       </div>
       <div class="">
-        <a class="logout">
+        <router-link to="/auth/login" class="logout">
           <svg-icon class="pl-4" :fa-icon="faArrowRightFromBracket" :size="40" flip="horizontal"></svg-icon>
           Log out
-          </a>
+          </router-link>
       </div>
     </div>
   </div>
