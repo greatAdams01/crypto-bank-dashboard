@@ -48,10 +48,13 @@
         </router-link>
       </div>
       <div class="">
-        <router-link to="/auth/login" class="logout">
+        <a
+          @click="logUserOut(store)"
+          class="logout"
+        >
           <svg-icon class="pl-4" :fa-icon="faArrowRightFromBracket" :size="40" flip="horizontal"></svg-icon>
           Log out
-          </router-link>
+        </a>
       </div>
     </div>
   </div>
@@ -59,6 +62,8 @@
 
 <script setup>
 import { reactive, onMounted } from 'vue'
+import { useStore } from 'vuex'
+import logUserOut from '../../composable/logout'
 import { 
   faSackDollar,
   faChartSimple,
@@ -74,6 +79,8 @@ const state = reactive({
   isMobileView: false,
   x: ''
 })
+
+const store = useStore()
 
 const checkMedia = (x) => {
   if (x.matches) { // If media query matches

@@ -41,6 +41,11 @@ export default {
       } catch (error) {
         console.log(error)
       }
+    },
+    logOut ({ commit }) {
+      localStorage.removeItem('token')
+      commit('UPDATE_USER_STATE', {}, { root: true })
+      router.push('/auth/login')
     }
   }
 }
