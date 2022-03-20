@@ -1,8 +1,27 @@
 <template>
   <div class="nav">
-    <div class="hidden fixed top-0 left-0 h-screen w-48 md:flex flex-col bg-theme-dark">
-      <div class="logo my-11"></div>
-      <div>
+    <div
+      v-if="state.isOpened"
+      class="slide-sidebar-x"
+      @click="state.isOpened ? state.isOpened = false : state.isOpened = true"
+    >
+      <svg-icon class="pl-4 text-primary" :fa-icon="faXmark" :size="32" flip="horizontal"></svg-icon>
+    </div>
+    <div
+      v-else
+      :class="[state.isOpened ? 'slide-sidebar' : 'slide-sidebar-close']"
+      @click="state.isOpened ? state.isOpened = false : state.isOpened = true"
+    >
+      <svg-icon class="pl-4 text-primary" :fa-icon="faBarsStaggered" :size="35" flip="horizontal"></svg-icon>
+    </div>
+    <div
+      v-if="state.isOpened"
+      class="fixed z-20 top-0 left-0 h-screen w-48 flex-col bg-theme-dark transition-all"
+    >
+      <div class="logo my-11">
+        <img class="w-[130px] m-auto" src="/img/logo.png" >
+      </div>
+      <div @click="state.isMobileView ? state.isOpened = false : state.isOpened = true">
         <router-link to="/" class="sidebar-icons">
           <svg-icon class="pr-4" type="mdi" :path="mdiViewDashboard" :size="40"></svg-icon>
           Dashboard
@@ -39,14 +58,39 @@
 </template>
 
 <script setup>
+import { reactive, onMounted, watch } from 'vue'
 import routes from '../../data/nav'
 import { 
   faSackDollar,
   faChartSimple,
   faMoneyBill,
   faMoneyBillTransfer,
-  faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+  faArrowRightFromBracket,
+  faXmark,
+  faBarsStaggered } from "@fortawesome/free-solid-svg-icons";
 import { mdiViewDashboard, mdiInvertColors } from '@mdi/js';
+
+const state = reactive({
+  isOpened: true,
+  isMobileView: false,
+  x: ''
+})
+
+const checkMedia = (x) => {
+  if (x.matches) { // If media query matches
+    state.isMobileView = false
+  } else {
+    state.isMobileView = true
+  }
+}
+
+state.x = window.matchMedia("(min-width: 1000px)")
+
+onMounted(() => {
+  checkMedia(state.x) // Call listener function at run time
+
+})
+
 </script>
 
 <style lang="scss" scoped>
