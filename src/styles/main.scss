@@ -36,16 +36,6 @@ input[type=number] {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-@media (min-width: 1000px) {
-  .container {
-    max-width: 980px !important;
-    margin-left: 259px;
-  }
-  .dash-side {
-    display: block;
-  }
-}
-
 .nav {
   .sidebar-icons {
     width: 170px;
@@ -76,8 +66,20 @@ input[type=number] {
   .logout {
     @apply relative flex justify-center items-center px-3 h-10 mt-24 mb-2 mx-auto bg-primary hover:bg-white rounded-full transition-all duration-300 ease-linear cursor-pointer text-white hover:text-primary text-center;
   }
+  .container {
+    @apply max-w-xs sm:max-w-md md:max-w-2xl
+  }
 }
 
+@media (min-width: 1000px) {
+  .container {
+    max-width: 980px !important;
+    margin-left: 259px;
+  }
+  .dash-side {
+    display: block;
+  }
+}
 
 @import 'components/auth.scss';
 @import 'components/sidebar.scss';

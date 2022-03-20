@@ -6,6 +6,7 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      display: ["group-hover"],
       colors: {
         'primary': '#6675FF',
         'theme-dark': '#212936'
