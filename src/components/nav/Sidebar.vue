@@ -58,8 +58,7 @@
 </template>
 
 <script setup>
-import { reactive, onMounted, watch } from 'vue'
-import routes from '../../data/nav'
+import { reactive, onMounted } from 'vue'
 import { 
   faSackDollar,
   faChartSimple,
@@ -71,7 +70,7 @@ import {
 import { mdiViewDashboard, mdiInvertColors } from '@mdi/js';
 
 const state = reactive({
-  isOpened: true,
+  isOpened: false,
   isMobileView: false,
   x: ''
 })
@@ -79,6 +78,7 @@ const state = reactive({
 const checkMedia = (x) => {
   if (x.matches) { // If media query matches
     state.isMobileView = false
+    state.isOpened = true
   } else {
     state.isMobileView = true
   }

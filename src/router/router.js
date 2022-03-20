@@ -26,6 +26,11 @@ export default [
     component: () => import(/* webpackChunkName: "Investment" */ '../views/Investment.vue')
   },
   {
+    path: '/profile',
+    name: 'Profile',
+    component: () => import(/* webpackChunkName: "Profile" */ '../views/Profile.vue')
+  },
+  {
     path: '/auth/login',
     name: 'Login',
     component: () => import(/* webpackChunkName: "login" */ '../views/auth/Login.vue')
