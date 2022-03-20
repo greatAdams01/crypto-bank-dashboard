@@ -1,5 +1,5 @@
 <template>
-  <div class="container flex flex-col md:flex-row justify-between bg-white h-20">
+  <div class="container flex flex-col md:flex-row justify-between bg-white md:h-20 ">
     <div class="order-last md:order-none text-theme-dark mt-5">
       <h2 class="text-3xl font-bold">{{ $route.name }}</h2>
       <p v-if="$route.name === 'Dashboard'">Realtime Insight on various activities</p>

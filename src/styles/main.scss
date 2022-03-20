@@ -67,7 +67,7 @@ input[type=number] {
     @apply relative flex justify-center items-center px-3 h-10 mt-24 mb-2 mx-auto bg-primary hover:bg-white rounded-full transition-all duration-300 ease-linear cursor-pointer text-white hover:text-primary text-center;
   }
   .container {
-    @apply max-w-xs sm:max-w-md md:max-w-2xl
+    @apply max-w-xs sm:max-w-md md:max-w-2xl m-auto
   }
 }
 
