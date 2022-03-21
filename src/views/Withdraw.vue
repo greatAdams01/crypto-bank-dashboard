@@ -5,7 +5,11 @@
       <div class="w-full sm:mb-2 md:w-3/4">
         <label for="package">Coin Type</label><br>
         <select v-model="state.coin" class="w-full sm:mb-2 md:w-3/4 px-4 py-3 rounded-lg border-2 bg-white">
-          <option value="btc">Bitcoin</option>
+          <option
+            v-for="coin in coinList"
+            :key="coin.id"
+            :value="coin.id"
+          >{{ coin.coin_type }}</option>
         </select>
       </div>
       <div class="md:w-3/4">
@@ -16,7 +20,7 @@
     <div class="md:flex my-5">
       <div class="md:w-3/4">
         <label for="balance">Available Balance</label><br>
-        <input disabled class="md:w-3/4 px-4 py-3 rounded-lg border-2 bg-white" v-model="state.balance" placeholder="balance Address" type="text" name="balance">
+        <input disabled class="md:w-3/4 px-4 py-3 rounded-lg border-2 bg-white" v-model="state.balance" placeholder="balance Address" type="number" name="balance">
       </div>
       <div class="md:w-3/4">
         <label for="amount">Amount</label><br>
@@ -29,12 +33,12 @@
         <input class="w-[94%] px-4 py-3 rounded-lg border-2 bg-white" v-model="state.walletAddress" placeholder="Wallet Address" type="text" name="wallet">
       </div>
     </div> -->
-    <button class="bg-primary px-9 py-3 rounded-lg text-white">Withdraw</button>
+    <button @click="onsubmit" class="bg-primary px-9 py-3 rounded-lg text-white">Withdraw</button>
   </div>
 </template>
 
 <script setup>
-import { reactive, onMounted } from 'vue'
+import { reactive, onMounted, computed } from 'vue'
 import { useStore } from 'vuex'
 import  { useToast } from 'vue-toastification'
 import DashLayout from '../components/layouts/DashLayout.vue';
@@ -42,16 +46,20 @@ import DashLayout from '../components/layouts/DashLayout.vue';
 const store = useStore()
 const toast = useToast()
 
+const coinList = computed(() => store.state.coins)
+
 const state = reactive({
-  balance: '',
+  balance: 0,
   coin: '',
   network: '',
   walletAddress: '',
   amount: 0
 })
 
+
 onMounted(() => {
-  state.balance = store.dispatch('userIfo/getAccountBalance')
+  store.dispatch('userInfo/getAccountBalance')
+  state.balance = store.state.accountBalance
 })
 
 const onsubmit = ()  => {

@@ -63,12 +63,12 @@ export default {
       router.push('/auth/login')
     },
     // Get accountBalance
-    async getAccountBalance () {
+    async getAccountBalance ({ commit }) {
       try {
         const res = await axios.get('/accounts/balance/')
-        return res.data
+        commit('UPDATE_ACCOUNT_BALANCE', res.data.balance, { root: true })
       } catch (error) {
-        console.log(error)
+        toast.error(error.message)
       }
     },
     // Deposit
@@ -83,10 +83,11 @@ export default {
     // Withdraw
     async withdrawAssets ({ commit }, payload) {
       try {
-        // const res = awiat axios.post('/transactions/withdraw/', payload)
-        console.log(payload)
+        const res = await axios.post('/transactions/withdraw/', payload)
+        console.log(res.data)
+        toast.success('Transactions successfully')
       } catch (error) {
-        console.log(error)
+        toast.error(error.message)
       }
     },
     async updateAsset ({ commit, state }, payload) {
