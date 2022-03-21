@@ -45,7 +45,12 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 import DashLayout from '../components/layouts/DashLayout.vue';
+
+const store = useStore()
+const tx_s = computed(() => store.state.transactions)
 </script>
 
 <style lang="scss" scoped>

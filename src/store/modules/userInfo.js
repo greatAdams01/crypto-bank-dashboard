@@ -85,7 +85,7 @@ export default {
       try {
         const res = await axios.post('/transactions/withdraw/', payload)
         console.log(res.data)
-        toast.success('Transactions successfully')
+        toast.success('Successful')
       } catch (error) {
         toast.error(error.message)
       }
@@ -98,11 +98,10 @@ export default {
           commit('UPDATE_ASSET', payload, { root: true })
           toast.success('Update sucessful')
         }
-        const res = await axios.post(' /accounts/userassets/', payload)
+        const res = await axios.post('/accounts/userassets/', payload)
         commit('UPDATE_ASSET', payload, { root: true })
         toast.success('Asset created sucessfully')
       } catch (error) {
-        console.log(error)
         toast.error(error.message)
       }
     }

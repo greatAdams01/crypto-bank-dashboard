@@ -40,12 +40,16 @@
       <div class="w-full sm:mb-2 md:w-3/4">
         <label for="package">Coin Type</label><br>
         <select v-model="state.coin" class="w-full sm:mb-2 md:w-3/4 px-4 py-3 rounded-lg border-2 bg-white">
-          <option value="btc">Bitcoin</option>
+          <option
+          v-for="coin in coinList"
+          :key="coin.id"
+          :value="coin.id"
+        >{{ coin.coin_type }}</option>
         </select>
       </div>
       <div class="w-full sm:mb-2 md:w-3/4 mb-3">
-        <label for="new-password">Wallet Address</label><br>
-        <input class="md:w-3/4 px-4 py-3 rounded-lg border-2 bg-white" v-model="state.walletAddress" placeholder="Password" type="text" name="new-password">
+        <label for="wallet-addres">Wallet Address</label><br>
+        <input class="md:w-3/4 px-4 py-3 rounded-lg border-2 bg-white" v-model="state.walletAddress" placeholder="Wallet Address" type="text" name="wallet-addres">
       </div>
       
   </div>
@@ -75,7 +79,7 @@
 import { useStore } from 'vuex'
 import DashLayout from '../components/layouts/DashLayout.vue';
 
-import { reactive, onMounted } from 'vue'
+import { reactive, onMounted, computed } from 'vue'
 import { useToast } from 'vue-toastification'
 
 const store = useStore()
@@ -83,6 +87,8 @@ const toast = useToast()
 
 const user = store.state.user
 const asset = store.state.asset
+
+const coinList = computed(() => store.state.coins)
 
 const state = reactive({
   errorMsg: '',
@@ -174,7 +180,7 @@ const userAssets = () => {
     wallet_address: state.walletAddress
   }
 
-  store.dispatch('userInfo/updateAsset')
+  store.dispatch('userInfo/updateAsset', data)
 }
 
 const validEmail = (email) => {
