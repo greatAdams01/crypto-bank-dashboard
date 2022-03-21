@@ -3,5 +3,7 @@ export default {
   asset: {},
   accountBalance: 0,
   isLoading: false,
-  transactions: []
+  transactions: [],
+  packages: [],
+  coins: []
 }

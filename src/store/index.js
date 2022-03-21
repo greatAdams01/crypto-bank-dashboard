@@ -3,6 +3,7 @@ import VuexPersistence from 'vuex-persist'
 
 import auth from './modules/auth'
 import userInfo from './modules/userInfo'
+import invest from './modules/invest'
 import state from './state'
 import mutations from './mutations'
 import getters from './getters'
@@ -14,7 +15,8 @@ const vuexLocal = new VuexPersistence({
 const store = createStore({
   modules: {
     auth,
-    userInfo
+    userInfo,
+    invest
   },
   state,
   mutations,

@@ -10,5 +10,11 @@ export default {
   },
   UPDATE_ASSET (state, payload) {
     state.asset = payload
+  },
+  UPDATE_PACKAGES (state, payload) {
+    state.packages = payload
+  },
+  UPDATE_COINS_LIST (state, payload) {
+    state.coins = payload
   }
 }

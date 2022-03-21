@@ -1,6 +1,6 @@
 <template>
  <DashLayout />
-  <div class="container bg-[#E5E5E5] rounded-lg p-10 ">
+  <div class="container bg-[#fcfcff] rounded-lg p-10 ">
     <div class="md:flex mt-10">
       <div class="w-full sm:mb-2 md:w-3/4">
         <label for="first-name">First name</label><br>
@@ -43,7 +43,7 @@
           <option value="btc">Bitcoin</option>
         </select>
       </div>
-      <div class="w-full sm:mb-2 md:w-3/4">
+      <div class="w-full sm:mb-2 md:w-3/4 mb-3">
         <label for="new-password">Wallet Address</label><br>
         <input class="md:w-3/4 px-4 py-3 rounded-lg border-2 bg-white" v-model="state.walletAddress" placeholder="Password" type="text" name="new-password">
       </div>

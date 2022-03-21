@@ -1,6 +1,6 @@
 <template>
  <DashLayout />
-  <div class="container bg-[#E5E5E5] rounded-lg p-10">
+  <div class="container bg-[#fcfcff] rounded-lg p-10">
     <div class="md:flex mt-10">
       <div class="w-full sm:mb-2 md:w-3/4">
         <label for="package">Package Categories</label><br>

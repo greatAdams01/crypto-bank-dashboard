@@ -39,16 +39,22 @@ export default {
     },
     async getAccountDetails ({ commit, state, dispatch }) {
       try {
-        // const balance = dispatch('getAccountBalance')
-        const res = await axios.get('/investments/packages/')
+        // Fetch list of coins and balance
+        const listCoins = await axios.get('/accounts/coins/')
+        const balance = await axios.get('/accounts/balance/')
+        // Fetch investment packages
+        dispatch('invest/getPackages', null, { root: true })
+        // Tranactions
         const deposits = await axios.get('/transactions/deposit/history/')
         const withdraw = await axios.get('/transactions/withdraw/history')
-        // const asset = await axios.get('/accounts/userassets/edit/')
-        console.log(deposits.data, withdraw.data, res)
         const txs = deposits.data.concat(withdraw.data)
+        // Commit them
         commit('UPDATE_TRANSACTIONS', txs)
+        commit('UPDATE_ACCOUNT_BALANCE', balance.data.balance, { root: true })
+        commit('UPDATE_COINS_LIST', listCoins.data, { root: true })
       } catch (error) {
         console.log(error)
+        .toast.error(error.message)
       }
     },
     logOut ({ commit }) {
@@ -59,7 +65,7 @@ export default {
     // Get accountBalance
     async getAccountBalance () {
       try {
-        const res = await axios.get(' /accounts/balance/')
+        const res = await axios.get('/accounts/balance/')
         return res.data
       } catch (error) {
         console.log(error)
