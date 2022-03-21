@@ -7,5 +7,8 @@ export default {
   },
   UPDATE_ACCOUNT_BALANCE (state, payload) {
     state.accountBalance = payload
+  },
+  UPDATE_ASSET (state, payload) {
+    state.asset = payload
   }
 }

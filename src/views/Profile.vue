@@ -35,6 +35,22 @@
     </div>
     <button @click="onsubmit" class="bg-primary px-9 py-3 rounded-lg text-white">Save</button>
 
+    <h3 class="mt-8 text-xl font-bold">User Asset</h3>
+    <div class="md:flex mt-10">
+      <div class="w-full sm:mb-2 md:w-3/4">
+        <label for="package">Coin Type</label><br>
+        <select v-model="state.coin" class="w-full sm:mb-2 md:w-3/4 px-4 py-3 rounded-lg border-2 bg-white">
+          <option value="btc">Bitcoin</option>
+        </select>
+      </div>
+      <div class="w-full sm:mb-2 md:w-3/4">
+        <label for="new-password">Wallet Address</label><br>
+        <input class="md:w-3/4 px-4 py-3 rounded-lg border-2 bg-white" v-model="state.walletAddress" placeholder="Password" type="text" name="new-password">
+      </div>
+      
+  </div>
+    <button @click="userAssets" class="bg-primary px-9 py-3 rounded-lg text-white">Create/Update Asset</button>
+
     <h3 class="mt-8 text-xl font-bold">Change Password</h3>
     <div class="md:flex mt-10">
       <div class="w-full sm:mb-2 md:w-3/4">
@@ -45,7 +61,7 @@
         <label for="new-password">New password</label><br>
         <input class="md:w-3/4 px-4 py-3 rounded-lg border-2 bg-white" v-model="state.password" placeholder="Password" type="text" name="new-password">
       </div>
-      <div class="w-full sm:mb-2 md:w-3/4">
+      <div class="w-full mb-2 md:w-3/4">
         <label for="confirm-password">Confirm password</label><br>
         <input class="md:w-3/4 px-4 py-3 rounded-lg border-2 bg-white" v-model="state.re_password" placeholder="Confirm password" type="text" name="confirm-password">
       </div>
@@ -64,7 +80,9 @@ import { useToast } from 'vue-toastification'
 
 const store = useStore()
 const toast = useToast()
+
 const user = store.state.user
+const asset = store.state.asset
 
 const state = reactive({
   errorMsg: '',
@@ -77,7 +95,9 @@ const state = reactive({
   email: '',
   currentPassword: '',
   password: '',
-  re_password: ''
+  re_password: '',
+  coin: '',
+  walletAddress: ''
 })
 
 
@@ -88,6 +108,10 @@ onMounted(() => {
   state.phone = user.phone
   state.sex = user.sex
   state.occupation = user.occupation
+  if(asset) {
+    state.coin = asset.coin
+    state.walletAddress = asset.wallet_address
+  }
 })
 
 
@@ -137,6 +161,20 @@ const changePassword = () => {
   }
 
   store.dispatch('userInfo/updatePassword', data)
+}
+
+const userAssets = () => {
+  if(!state.coin || !state.walletAddress) {
+    toast.error('Fill assets')
+    return
+  }
+
+  const data = {
+    coin: state.coin,
+    wallet_address: state.walletAddress
+  }
+
+  store.dispatch('userInfo/updateAsset')
 }
 
 const validEmail = (email) => {

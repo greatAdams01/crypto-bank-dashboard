@@ -1,6 +1,6 @@
 <template>
  <DashLayout />
-  <div class="container bg-[#E5E5E5] rounded-lg p-10 h-[80vh]">
+  <div class="container bg-[#E5E5E5] rounded-lg p-10">
     <div class="md:flex mt-10">
       <div class="w-full sm:mb-2 md:w-3/4">
         <label for="package">Package Categories</label><br>
@@ -31,14 +31,18 @@
         <input class="w-[94%] px-4 py-3 rounded-lg border-2 bg-white" v-model="state.walletAddress" placeholder="Wallet Address" type="text" name="wallet">
       </div>
     </div> -->
-    <button class="bg-primary px-9 py-3 rounded-lg text-white">Deposit</button>
+    <button @click="onsubmit" class="bg-primary px-9 py-3 rounded-lg text-white">Deposit</button>
   </div>
 </template>
 
 <script setup>
+import { reactive } from 'vue'
+import { useStore } from 'vuex'
+import  { useToast } from 'vue-toastification'
 import DashLayout from '../components/layouts/DashLayout.vue';
 
-import { reactive } from 'vue'
+const store = useStore()
+const toast = useToast()
 
 const state = reactive({
   package: '',
@@ -48,7 +52,18 @@ const state = reactive({
   amount: 0
 })
 const onsubmit = ()  => {
-  console.log('Submit')
+  if(!state.package || !state.coin || !state.walletAddress || !state.amount) {
+    toast.error('Added inputs')
+    return
+  }
+  const proof = ''
+  const data = {
+    coin : state.coin,
+    company_wallet_address: state.walletAddress,
+    amount: state.amount,
+    proof: proof
+  }
+  store.dispatch('userInfo/depositassets', data)
 }
 </script>
 

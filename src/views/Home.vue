@@ -27,7 +27,7 @@ import DashLayoutVue from '../components/layouts/DashLayout.vue'
 
 const store = useStore()
 onMounted(() => {
-  store.dispatch('userInfo/getBalance')
+  store.dispatch('userInfo/getAccountDetails')
 })
 </script>
 

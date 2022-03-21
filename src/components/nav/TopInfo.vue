@@ -19,7 +19,7 @@
       <div class="flex ml-4 cursor-pointer group">
         <img class="w-10 h-10 rounded-full" src="/img/wp5293460.jpg" alt="">
         <svg-icon class="pr-2 pt-1" :fa-icon="faCaretDown" :size="35" flip="horizontal"></svg-icon>
-        <div class="hidden group-hover:block absolute top-14 md:right-[100px] bg-white w-28 rounded-2xl shadow-lg border-primary p-3 transition-all duration-300 ease-linear">
+        <div class="hidden group-hover:block absolute top-14 md:right-[100px] bg-white  rounded-2xl shadow-lg border-primary p-3 transition-all duration-300 ease-linear">
           <router-link class="block border-b-2 border-primary" to="/profile">Profile</router-link>
           <a
             @click="logUserOut(store)"
