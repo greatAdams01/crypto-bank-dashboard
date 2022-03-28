@@ -16,9 +16,9 @@
         <img src="/img/Enter-OTP-pana.svg" alt="">
       </div> -->
       <div class=" md:w-2/5">
-        <h5 class="text-xl font-bold text-center py-4">Login</h5>
+        <h5 class="text-xl font-bold text-center py-4">Request reset</h5>
         <div class="rounded-xl bg-white border-2 shadow-lg p-8">
-          <h5 class="text-center pt-3">Welcome to Avalogs!</h5>
+          <h5 class="text-center pt-3">Enter email to reset password</h5>
           <div class="text-center text-primary mb-5">
               <router-link to="/auth/signup" class="text-sm text-center">Don't have an account ?</router-link>
             </div>
@@ -27,15 +27,15 @@
               <label for="email">Email</label>
               <input v-model.trim="state.email" type="email" name="email" required>
             </div>
-            <div class="form-input">
+            <!-- <div class="form-input">
               <label for="password">Password</label>
               <input v-model="state.password" type="password" name="password" required>
-            </div>
+            </div> -->
             <div class="text-center text-primary mb-5">
-              <router-link to="/auth/forgot" class="text-sm text-center">Forgotten password ?</router-link>
+              <router-link to="/auth/login" class="text-sm text-center">Remembered password ?</router-link>
             </div>
             <div class="btn-item">
-              <button type="submit" class="rounded-xl bg-primary text-white">Login</button>
+              <button type="submit" class="rounded-xl bg-primary text-white">Request reset</button>
             </div>
           </form>
         </div>
@@ -62,8 +62,8 @@ const state = reactive({
 
 const onsubmit = (e) => {
   state.errorMsg = ''
-  if(!state.email || !state.password ) {
-    state.errorMsg = 'Add Inputs'
+  if(!state.email ) {
+    state.errorMsg = 'Add email'
     toast.error(state.errorMsg)
     return
   }
@@ -80,7 +80,7 @@ const onsubmit = (e) => {
 
   state.errorMsg = ''
 
-  console.log('auth/login', data)
+  store.dispatch('auth/login', data)
 
 }
 
