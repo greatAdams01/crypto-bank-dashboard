@@ -1,19 +1,23 @@
 <template>
-  <Chart
-    :size="{ width: 500, height: 400 }"
-    :data="data"
-    :margin="margin"
-    :direction="direction">
+  <DashLayout></DashLayout>
+  <div class="container">
+    <Chart
+      :size="{ width: 500, height: 400 }"
+      :data="data"
+      :margin="margin"
+      :direction="direction">
 
-    <template #layers>
-      <Grid strokeDasharray="2,2" />
-      <Line :dataKeys="['name', 'pl']" />
-    </template>
+      <template #layers>
+        <Grid strokeDasharray="2,2" />
+        <Line :dataKeys="['name', 'pl']" />
+      </template>
 
-  </Chart>
+    </Chart>
+  </div>
 </template>
 
 <script lang="ts">
+import DashLayout from '../components/layouts/DashLayout.vue'
 import { defineComponent, ref } from 'vue'
 import { Chart, Grid, Line } from 'vue3-charts'
 const plByMonth = [
@@ -28,7 +32,7 @@ const plByMonth = [
 
 export default defineComponent({
   name: 'LineChart',
-  components: { Chart, Grid, Line },
+  components: { Chart, Grid, Line, DashLayout },
   setup() {
     const data = ref(plByMonth)
     const direction = ref('horizontal')
@@ -44,7 +48,7 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style scoped>
 #app {
   color: #2ecc71
 }
