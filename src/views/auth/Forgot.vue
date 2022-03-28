@@ -80,7 +80,7 @@ const onsubmit = (e) => {
 
   state.errorMsg = ''
 
-  store.dispatch('auth/login', data)
+  console.log('auth/login', data)
 
 }
 
