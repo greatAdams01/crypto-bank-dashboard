@@ -67,7 +67,7 @@ input[type=number] {
     @apply absolute bottom-[47px] left-[30px] flex justify-center items-center px-3 h-10 mt-24 mb-2 mx-auto bg-primary hover:bg-white rounded-full transition-all duration-300 ease-linear cursor-pointer text-white hover:text-primary text-center;
   }
   .container {
-    @apply max-w-xs sm:max-w-md md:max-w-2xl m-auto mb-20
+    @apply max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl m-auto mb-20
   }
   .slide-sidebar-x {
     @apply absolute bg-white shadow-xl rounded-full w-[40px] h-[40px] pl-[11px] pt-1 left-[175px] top-[15px] z-30 cursor-pointer
