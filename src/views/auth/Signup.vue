@@ -17,7 +17,7 @@
       </div> -->
       <div class=" md:w-[60%] mb-10">
         <h5 class="text-xl font-bold text-center py-4">Sign up</h5>
-        <div class="rounded-xl bg-white border-2 border-gray-500 p-8">
+        <div class="rounded-xl bg-white border-2 shadow-lg p-8">
           <h5 class="text-center pt-3">Welcome to Avalogs!</h5>
           <div class="text-center text-primary mb-5">
               <router-link to="/auth/login" class="text-sm text-center">Already have an account ?</router-link>
