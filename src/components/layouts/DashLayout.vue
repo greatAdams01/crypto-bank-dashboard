@@ -17,9 +17,9 @@ const store = useStore()
 const user = store.state.user
 
 onMounted(() => {
-  // if(!user.token) {
-  //   router.push('/auth/login')
-  // }
+  if(!user.token) {
+    router.push('/auth/login')
+  }
 })
 
 
