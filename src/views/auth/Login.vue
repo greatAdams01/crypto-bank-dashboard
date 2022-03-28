@@ -11,10 +11,10 @@
         </div>
       </div>
     </div>
-    <div class="md:flex mt-4 justify-between form-row">
-      <div class=" md:w-2/5 flex align-middle">
+    <div class="md:flex mt-4 justify-center form-row">
+      <!-- <div class=" md:w-2/5 flex align-middle">
         <img src="/img/Enter-OTP-pana.svg" alt="">
-      </div>
+      </div> -->
       <div class=" md:w-2/5">
         <h5 class="text-xl font-bold text-center py-4">Login</h5>
         <div class="rounded-xl bg-white border-2 border-gray-500 p-8">

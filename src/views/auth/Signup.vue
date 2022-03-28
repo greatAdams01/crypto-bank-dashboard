@@ -11,11 +11,11 @@
         </div>
       </div>
     </div>
-    <div class="md:flex mt-4 justify-between form-row">
-      <div class=" md:w-3/6 flex align-middle">
+    <div class="md:flex mt-4 justify-center form-row">
+      <!-- <div class=" md:w-3/6 flex align-middle">
         <img src="/img/Enter-OTP-pana.svg" alt="">
-      </div>
-      <div class=" md:w-3/4 mb-10">
+      </div> -->
+      <div class=" md:w-[60%] mb-10">
         <h5 class="text-xl font-bold text-center py-4">Sign up</h5>
         <div class="rounded-xl bg-white border-2 border-gray-500 p-8">
           <h5 class="text-center pt-3">Welcome to Avalogs!</h5>
