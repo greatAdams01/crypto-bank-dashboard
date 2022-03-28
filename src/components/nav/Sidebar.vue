@@ -16,7 +16,7 @@
     </div>
     <div
       v-if="state.isOpened"
-      class="fixed z-20 top-0 left-0 h-screen w-48 flex-col bg-theme-dark transition-all"
+      class="fixed z-20 top-0 left-0 h-screen w-[13rem] flex-col bg-theme-dark transition-all"
     >
       <div class="logo my-11">
         <img class="w-[130px] m-auto" src="/img/logo.png" >

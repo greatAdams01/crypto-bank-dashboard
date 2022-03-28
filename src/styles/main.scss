@@ -38,7 +38,7 @@ input[type=number] {
 }
 .nav {
   .sidebar-icons {
-    width: 170px;
+    width: 186px;
     margin-left: 22px;
     a {
       width: 170px;
@@ -64,7 +64,7 @@ input[type=number] {
     @apply relative flex items-center px-3 h-12 mt-2 mb-2 mx-auto bg-theme-dark hover:bg-white rounded-l-full transition-all duration-300 ease-linear cursor-pointer text-white hover:text-primary;
   }
   .logout {
-    @apply relative flex justify-center items-center px-3 h-10 mt-24 mb-2 mx-auto bg-primary hover:bg-white rounded-full transition-all duration-300 ease-linear cursor-pointer text-white hover:text-primary text-center;
+    @apply absolute bottom-[47px] left-[30px] flex justify-center items-center px-3 h-10 mt-24 mb-2 mx-auto bg-primary hover:bg-white rounded-full transition-all duration-300 ease-linear cursor-pointer text-white hover:text-primary text-center;
   }
   .container {
     @apply max-w-xs sm:max-w-md md:max-w-2xl m-auto mb-20
