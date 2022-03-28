@@ -15,6 +15,7 @@
     "vue": "^3.2.25",
     "vue-router": "^4.0.13",
     "vue-toastification": "^2.0.0-rc.5",
+    "vue3-charts": "^1.1.31",
     "vue3-icon": "^2.0.0",
     "vuex": "^4.0.2",
     "vuex-persist": "^3.1.3"

@@ -26,6 +26,11 @@ export default [
     component: () => import(/* webpackChunkName: "Investment" */ '../views/Investment.vue')
   },
   {
+    path: '/data-feed',
+    name: 'Data-Feed',
+    component: () => import(/* webpackChunkName: "Investment" */ '../views/Charts.vue')
+  },
+  {
     path: '/profile',
     name: 'Profile',
     component: () => import(/* webpackChunkName: "Profile" */ '../views/Profile.vue')

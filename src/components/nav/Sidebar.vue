@@ -42,7 +42,7 @@
           <svg-icon class="pr-4" type="mdi" :path="mdiInvertColors " :size="40"></svg-icon>
           Investment
         </router-link>
-        <router-link to="/" class="sidebar-icons">
+        <router-link to="/data-feed" class="sidebar-icons">
           <svg-icon class="pl-4" :fa-icon="faChartSimple" :size="40" flip="horizontal"></svg-icon>
           Chart
         </router-link>
