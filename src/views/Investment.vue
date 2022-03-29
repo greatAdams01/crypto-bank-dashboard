@@ -4,7 +4,7 @@
     <div>
       <p class="text-center p-10">Lorem aute incididunt cupidatat est dolor consequat sit. Nulla est ea minim veniam nisi.<br> Esse incididunt sit ea duis sint ipsum Lorem id ea do enim ea.</p>
     </div>
-    <div class=" md:flex md:justify-between mt-5">
+    <div class=" md:flex flex-wrap md:justify-between mt-5">
         <div
           v-for="packageItem in packages"
           :key="packageItem.id"

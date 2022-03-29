@@ -16,6 +16,7 @@
           <h3 class="text-2xl pt-3">₦ 4,509,063</h3>
         </div>
       </div>
+      <ChartsVue />
     </div>
   </div>
 </template>
@@ -24,6 +25,7 @@
 import { onMounted, computed } from 'vue'
 import { useStore } from 'vuex'
 import DashLayoutVue from '../components/layouts/DashLayout.vue'
+import ChartsVue from '../components/Charts.vue';
 
 const store = useStore()
 onMounted(() => {
