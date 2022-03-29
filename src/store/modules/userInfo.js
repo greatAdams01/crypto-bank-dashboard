@@ -41,7 +41,7 @@ export default {
       try {
         // Fetch list of coins and balance
         const listCoins = await axios.get('/accounts/coins/')
-        const balance = await axios.get('/accounts/balance/')
+        // const balance = await axios.get('/accounts/balance/')
         // Fetch investment packages
         dispatch('invest/getPackages', null, { root: true })
         // Tranactions
@@ -50,7 +50,7 @@ export default {
         const txs = deposits.data.concat(withdraw.data)
         // Commit them
         commit('UPDATE_TRANSACTIONS', txs)
-        commit('UPDATE_ACCOUNT_BALANCE', balance.data.balance, { root: true })
+        // commit('UPDATE_ACCOUNT_BALANCE', balance.data.balance, { root: true })
         commit('UPDATE_COINS_LIST', listCoins.data, { root: true })
       } catch (error) {
         console.log(error)
@@ -72,12 +72,14 @@ export default {
       }
     },
     // Deposit
-    async depositassets ({ commit }, payload) {
+    async depositAssets ({ commit, state, dispatch }, payload) {
       try {
-        // const res = await axios.post('/transactions/deposit/', payload)
-        console.log(payload)
+        const { data } = await axios.post('/transactions/deposit/', payload)
+        toast.success('Deposit sucessful')
+        dispatch('getAccountBalance')
+        router.push('/')
       } catch (error) {
-        console.log(error)
+        toast.error(error.message)
       }
     },
     // Withdraw

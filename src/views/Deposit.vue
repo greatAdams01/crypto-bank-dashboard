@@ -5,20 +5,28 @@
       <div class="w-full sm:mb-2 md:w-3/4">
         <label for="package">Package Categories</label><br>
         <select v-model="state.package" class="w-full sm:mb-2 md:w-3/4 px-4 py-3 rounded-lg border-2 bg-white">
-          <option value="defi">Defi</option>
+          <option
+            v-for="pack in packagesList"
+            :key="pack.id"
+            :value="pack.id"
+          >{{ pack.name }}</option>
         </select>
       </div>
       <div class="w-full sm:mb-2 md:w-3/4">
         <label for="package">Coin Type</label><br>
         <select v-model="state.coin" class="w-full sm:mb-2 md:w-3/4 px-4 py-3 rounded-lg border-2 bg-white">
-          <option value="btc">Bitcoin</option>
+          <option
+            v-for="coin in coinList"
+            :key="coin.id"
+            :value="coin.id"
+          >{{ coin.coin_type }}</option>
         </select>
       </div>
     </div>
     <div class="md:flex my-5">
       <div class="md:w-3/4">
         <label for="wallet">Wallet</label><br>
-        <input class="md:w-3/4 px-4 py-3 rounded-lg border-2 bg-white" v-model="state.walletAddress" placeholder="Wallet Address" type="text" name="wallet">
+        <input disabled class="md:w-3/4 px-4 py-3 rounded-lg border-2 bg-white" v-model="state.walletAddress" placeholder="Wallet Address" type="text" name="wallet">
       </div>
       <div class="md:w-3/4">
         <label for="amount">Amount</label><br>
@@ -36,12 +44,14 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { reactive, computed, onMounted } from 'vue'
+import  { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 import  { useToast } from 'vue-toastification'
 import DashLayout from '../components/layouts/DashLayout.vue';
 
 const store = useStore()
+const router = useRouter()
 const toast = useToast()
 
 const state = reactive({
@@ -51,6 +61,22 @@ const state = reactive({
   walletAddress: '',
   amount: 0
 })
+
+const packagesList = computed(() => store.state.packages)
+const coinList = computed(() => store.state.coins)
+const userAsset = computed(() => store.state.asset)
+state.walletAddress = store.state.asset.wallet_address
+
+if(!store.state.asset.wallet_address) {
+  toast.info('Create Assets')
+  router.push('/profile')
+}
+
+onMounted(() => {
+  store.dispatch('invest/getPackages')
+})
+
+
 const onsubmit = ()  => {
   if(!state.package || !state.coin || !state.walletAddress || !state.amount) {
     toast.error('Added inputs')
@@ -58,12 +84,13 @@ const onsubmit = ()  => {
   }
   const proof = ''
   const data = {
+    package: state.package,
     coin : state.coin,
-    company_wallet_address: state.walletAddress,
+    company_wallet_address: store.state.asset.coin,
     amount: state.amount,
     proof: proof
   }
-  store.dispatch('userInfo/depositassets', data)
+  store.dispatch('userInfo/depositAssets', data)
 }
 </script>
 

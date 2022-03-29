@@ -10,7 +10,7 @@
           :key="packageItem.id"
           class="rounded-lg bg-white w-[280px] h-[350px] text-center mt-4 mx-auto shadow-lg"
         >
-          <h4 class="text-xl font-bold pt-16 text-primary">Basic</h4>
+          <h4 class="text-xl font-bold pt-16 text-primary">{{ packageItem.name }}</h4>
           <h3 class="text-sm pt-3">Maximum Deposit {{ packageItem.maximum_stake }}USD</h3>
           <h3 class="text-sm pt-3">Minimum Deposit {{ packageItem.minimum_stake }}USD</h3>
           <h3 class="text-sm pt-3">ROI Action {{ packageItem.roi }} TIMES</h3>
