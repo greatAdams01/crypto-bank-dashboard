@@ -1,6 +1,14 @@
 <template>
  <DashLayout />
   <div class="container bg-[#fcfcff] rounded-lg p-10 ">
+    <DropZone class="drop-area" @files-dropped="addFiles" #default="{ dropZoneActive }">
+        <div v-if="dropZoneActive">
+            <div>Drop Them</div>
+        </div>
+        <div v-else>
+            <div>Drag Your Files Here</div>
+        </div>
+    </DropZone>
     <div class="md:flex mt-10">
       <div class="w-full sm:mb-2 md:w-3/4">
         <label for="first-name">First name</label><br>
@@ -78,6 +86,8 @@
 <script setup>
 import { useStore } from 'vuex'
 import DashLayout from '../components/layouts/DashLayout.vue';
+import DropZone from '../components/DropZone.vue'
+import useFileList from '../composable/file'
 
 import { reactive, onMounted, computed } from 'vue'
 import { useToast } from 'vue-toastification'
@@ -89,6 +99,8 @@ const user = store.state.user
 const asset = store.state.asset
 
 const coinList = computed(() => store.state.coins)
+
+const { files, addFiles, removeFile } = useFileList()
 
 const state = reactive({
   errorMsg: '',
