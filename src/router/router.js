@@ -8,7 +8,7 @@ export default [
   {
     path: '/deposit',
     name: 'Deposit',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Deposit.vue')
+    component: () => import( '../views/Deposit.vue')
   },
   {
     path: '/withdraw',

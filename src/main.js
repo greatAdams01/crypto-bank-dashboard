@@ -4,7 +4,6 @@ import App from './App.vue'
 import SvgIcon from "vue3-icon";
 import './styles/main.scss'
 
-
 import Toast, { POSITION } from "vue-toastification";
 
 import "vue-toastification/dist/index.css";

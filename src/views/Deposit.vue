@@ -67,10 +67,10 @@ const coinList = computed(() => store.state.coins)
 const userAsset = computed(() => store.state.asset)
 state.walletAddress = store.state.asset.wallet_address
 
-if(!store.state.asset.wallet_address) {
-  toast.info('Create Assets')
-  router.push('/profile')
-}
+// if(!store.state.asset.wallet_address) {
+//   toast.info('Create Assets')
+//   router.push('/profile')
+// }
 
 onMounted(() => {
   store.dispatch('invest/getPackages')
@@ -102,5 +102,6 @@ select {
   background-repeat: no-repeat;
   background-position-x: 95%;
   background-position-y: 10px;
+  background-color: white;
 }
 </style>
