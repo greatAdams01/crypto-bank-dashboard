@@ -2,57 +2,63 @@
   <div>
     <DashLayout />
     <div class="container">
-  <table class="table-fixed hover:table-fixed mt-16">
-  <thead>
-    <tr>
-      <th class="w-40 text-center">S/N</th>
-      <th class="w-40 text-center">Coin</th>
-      <th class="w-40 text-center">Account</th>
-      <th class="w-40 text-center">Transaction Type</th>
-      <th class="w-40 text-center">Date</th>
-      <th class="w-40 text-center">Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="my-4">
-      <td class="w-40 text-center">1</td>
-      <td class="w-40 text-center">Bitcoin</td>
-      <td class="w-40 text-center">$100000.00</td>
-      <td class="w-40 text-center">Deposit</td>
-      <td class="w-40 text-center">12/03/2022</td>
-      <td class="w-40 text-center">Pending</td>
-    </tr>
-    <tr class="my-4">
-      <td class="w-40 text-center">2</td>
-      <td class="w-40 text-center">USDT</td>
-      <td class="w-40 text-center">$100000.00</td>
-      <td class="w-40 text-center">Deposit</td>
-      <td class="w-40 text-center">12/03/2022</td>
-      <td class="w-40 text-center">Pending</td>
-    </tr>
-    <tr class="my-4">
-      <td class="w-40 text-center">3</td>
-      <td class="w-40 text-center">Ethereum</td>
-      <td class="w-40 text-center">$100786000.00</td>
-      <td class="w-40 text-center">Deposit</td>
-      <td class="w-40 text-center">12/03/2022</td>
-      <td class="w-40 text-center">Pending</td>
-    </tr>
-  </tbody>
-</table>
+      <table class="table-auto w-full text-center">
+        <thead>
+          <tr class="text-gray-400">
+            <th class="py-4 text-primary">S/N</th>
+            <th>Coin</th>
+            <th>Account</th>
+            <th>Transaction Type</th>
+            <th>Data</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="py-4 bg-gray-50">
+            <td class="p-4">1</td>
+            <td>Bitcoin</td>
+            <td>$198989</td>
+            <td>Deposit</td>
+            <td>12/22/334</td>
+            <td>Pending</td>
+          </tr>
+          <tr class="py-4 ">
+            <td class="p-4">2</td>
+            <td>Bitcoin</td>
+            <td>$198989</td>
+            <td>Deposit</td>
+            <td>12/22/334</td>
+            <td>Pending</td>
+          </tr>
+          <tr class="py-4 bg-gray-50">
+            <td class="p-4">3</td>
+            <td>Bitcoin</td>
+            <td>$198989</td>
+            <td>Deposit</td>
+            <td>12/22/334</td>
+            <td>Pending</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { useStore } from 'vuex'
-import DashLayout from '../components/layouts/DashLayout.vue';
+import { computed, onMounted} from "vue";
+import { useStore } from "vuex";
+import DashLayout from "../components/layouts/DashLayout.vue";
 
-const store = useStore()
-const tx_s = computed(() => store.state.transactions)
+const store = useStore();
+const tx_s = computed(() => store.state.transactions);
+// onMounted(() => {
+//   fetch("http://vicsites.herokuapp.com/transactions/deposit/history/")
+//   .then(response => response.json())
+//   .then(data => {
+//     console.log(data)
+//   })
+// })
 </script>
 
 <style lang="scss" scoped>
-
 </style>
