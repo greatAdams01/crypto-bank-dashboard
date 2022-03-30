@@ -3,7 +3,8 @@ export default {
   asset: {},
   accountBalance: 0,
   isLoading: false,
-  transactions: [],
+  depositTx: [],
+  withdrawTx: [],
   packages: [],
   coins: []
 }

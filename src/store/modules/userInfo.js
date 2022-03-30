@@ -15,8 +15,12 @@ export default {
       state.user.sex = sex
       state.user.occupation = occupation
     },
-    UPDATE_TRANSACTIONS (state, payload) {
-      state.transactions = payload
+    UPDATE_DEPOSIT (state, payload) {
+      state.depositTx = payload
+      console.log(state.depositTx)
+    },
+    UPDATE_WITHDRAW (state, payload) {
+      state.withdrawTx = payload
     }
   },
   actions: {
@@ -47,14 +51,14 @@ export default {
         // Tranactions
         const deposits = await axios.get('/transactions/deposit/history/')
         const withdraw = await axios.get('/transactions/withdraw/history')
-        const txs = deposits.data.concat(withdraw.data)
         // Commit them
-        commit('UPDATE_TRANSACTIONS', txs)
+        // console.log(deposits.data)
+        commit('UPDATE_DEPOSIT', deposits.data)
+        commit('UPDATE_WITHDRAW', withdraw.data)
         commit('UPDATE_ACCOUNT_BALANCE', balance.data.balance, { root: true })
         commit('UPDATE_COINS_LIST', listCoins.data, { root: true })
       } catch (error) {
-        console.log(error)
-        .toast.error(error.message)
+        toast.error(error.message)
       }
     },
     logOut ({ commit }) {
